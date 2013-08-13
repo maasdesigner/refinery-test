@@ -2,17 +2,23 @@
 <%= render '/refinery/html_tag' %>
   <% site_bar = render('/refinery/site_bar', :head => true) -%>
   <%= render '/refinery/head' %>
-
-
   <body>
-
   <%= image_tag "bg.jpg", class: "bgimage"%>
     <%= site_bar -%>
     <%= render '/refinery/ie6check' if request.env['HTTP_USER_AGENT'] =~ /MSIE/ -%>
 
+    <div class="header">
+      <header class="head">
+        <%= render '/refinery/header' -%>
+      </header> </div>
 
-  <%= yield %>
+  <div class="banner">
 
-    <%= render 'shared/javascripts' %>
+
+      <%= yield %>
+
+
+  </div>
+    <%= render '/refinery/javascripts' %>
   </body>
 </html>
